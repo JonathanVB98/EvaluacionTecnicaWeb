@@ -12,4 +12,12 @@ export class HomeComponent {
      private _homeService: HomeService
   ) { }
 
+  ngOnInit(): void {
+    this.getRol();
+  }
+  async getRol(){
+    const result = await this._homeService.getRol();
+
+    console.log(result);
+  }
 }

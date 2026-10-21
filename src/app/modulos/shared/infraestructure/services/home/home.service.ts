@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HomeUseCase } from "../../../../home/domain/usecase/home-usecase";
+import { lastValueFrom } from "rxjs";
 
 
 @Injectable({
@@ -9,4 +10,9 @@ export class HomeService {
     constructor(
         private homeUseCase: HomeUseCase
     ) { }
+
+    async getRol(): Promise<any>{
+        const res = await lastValueFrom(this.homeUseCase.getRol());
+        return res.data;
+    }
 }

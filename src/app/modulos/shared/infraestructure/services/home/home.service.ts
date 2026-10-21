@@ -11,8 +11,8 @@ export class HomeService {
         private homeUseCase: HomeUseCase
     ) { }
 
-    async getRol(): Promise<any>{
-        const res = await lastValueFrom(this.homeUseCase.getRol());
+    async getHome(): Promise<any>{
+        const res = await lastValueFrom(this.homeUseCase.getHome());
         return res.data;
     }
 }

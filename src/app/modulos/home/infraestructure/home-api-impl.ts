@@ -10,7 +10,7 @@ import { ResponseApi } from "../../shared/domain/models/ResponseApi";
 export class HomeApiImpl extends HomeGateway {
     constructor(private apiService: ApiService){ super(); }
 
-    getRol(): Observable<ResponseApi> {
+    getHome(): Observable<ResponseApi> {
         return this.apiService.get<ResponseApi>(`rol/prueba`);
     }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from '../../../../shared/infraestructure/services/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(
+     private _homeService: HomeService
+  ) { }
+
+}

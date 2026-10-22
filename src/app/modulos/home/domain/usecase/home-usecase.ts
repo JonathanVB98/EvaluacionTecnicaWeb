@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class HomeUseCase {
     constructor(private _homeGateway: HomeGateway) { }
 
-    getHome(): Observable<any> {
-        return this._homeGateway.getHome();
+    getEmpleados(): Observable<any> {
+        return this._homeGateway.getEmpleados();
     }
 }

@@ -1,1 +1,87 @@
-<p>home works!</p>
+
+<div class="container  shadow" style="position: relative; top: 8rem;">
+    <form class="d-flex flex-wrap align-items-center gap-3 p-3">
+        <!-- Input de texto -->
+        <div class="d-flex flex-column">
+          <label for="txtClient" class="form-label">Nro empleado</label>
+          <input type="text" class="form-control" id="txtClient" 
+
+                 style="width: 100px;" 
+
+                 name="txtClient">
+        </div>
+        <div class="d-flex flex-column">
+          <label for="txtClient" class="form-label">Nombre empleado</label>
+          <input type="text" class="form-control" id="txtClient" 
+
+                 style="width: 400px;" 
+
+                 name="txtClient">
+        </div>
+    
+        <!-- ComboBox 3: Fechas -->
+        <div class="d-flex flex-column">
+          <label for="dateStart" class="form-label">Fecha inicio</label>
+          <input type="date" class="form-control" 
+                 id="dateStart" 
+                 style="width: 170px;" 
+
+                 name="dateStart">
+        </div>
+    
+        <div class="d-flex flex-column">
+          <label for="dateEnd" class="form-label">Fecha fin</label>
+          <input type="date" class="form-control" 
+                 id="dateEnd" 
+                 style="width: 170px;" 
+
+                 name="dateEnd">
+        </div>
+        <!-- ComboBox 1 -->
+        <div class="d-flex flex-column">
+          <label for="cmbTypeRoom" class="form-label">Sucursal</label>
+          <select class="form-select" id="cmbTypeRoom" 
+                  style="width: 230px;" 
+
+
+                  name="cmbTypeRoom">
+            <option value="-1" selected>Selecciona</option>
+            <option value="1" >Suite</option>
+          </select>
+        </div>
+        <!-- Botón -->
+        <div class="d-flex flex-column align-self-end">
+          <button class="btn btn-danger mt-4" >Buscar</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+    <table class="table align-middle overflow-hidden">
+      <thead style="background-color: #f8f9fa;">
+        <tr>
+          <th class="px-4 py-3">Empelado</th>
+          <th class="px-4 py-3">Direccion</th>
+          <th class="px-4 py-3">Edad</th>
+          <th class="px-4 py-3">Telefono</th>
+          <th class="px-4 py-3">Fecha Ingreso</th>
+          <th class="px-4 py-3">Genero</th>
+          <th class="px-4 py-3">Salario</th>
+          <th class="px-4 py-3">Sucursal</th>
+          <th class="px-4 py-3 text-end"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-bottom" *ngFor="let emp of empleados">
+          <th class="px-4 py-3">{{emp.nombre}}</th>
+          <th class="px-4 py-3">{{emp.direccion}}</th>
+          <th class="px-4 py-3">{{emp.edad}}</th>
+          <th class="px-4 py-3">{{emp.telefono}}</th>
+          <th class="px-4 py-3">{{emp.fechaIngreso | date}}</th>
+          <th class="px-4 py-3">{{emp.genero}}</th>
+          <td class="px-4 py-3">{{emp.salario | currency}}</td>
+          <td class="px-4 py-3">{{emp.sucursal}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>

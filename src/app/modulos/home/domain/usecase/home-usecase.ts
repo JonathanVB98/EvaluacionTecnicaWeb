@@ -12,4 +12,8 @@ export class HomeUseCase {
     getEmpleados(request: EmpleadoRequest | null = null): Observable<any> {
         return this._homeGateway.getEmpleados(request);
     }
+
+    getSucursales(): Observable<any> {
+        return this._homeGateway.getSucursales();
+    }
 }

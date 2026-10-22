@@ -16,4 +16,9 @@ export class HomeService {
         const res = await lastValueFrom(this.homeUseCase.getEmpleados(request));
         return res.data;
     }
+
+    async getSucursales(): Promise<any> {
+        const res = await lastValueFrom(this.homeUseCase.getSucursales());
+        return res.data;
+    }
 }

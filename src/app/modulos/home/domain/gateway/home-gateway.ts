@@ -4,4 +4,5 @@ import { EmpleadoRequest } from "../../../shared/domain/request/empleadoRequest"
 
 export abstract class HomeGateway {
     abstract getEmpleados(request?: EmpleadoRequest | null): Observable<ResponseApi>;
+    abstract getSucursales(): Observable<ResponseApi>;
 }

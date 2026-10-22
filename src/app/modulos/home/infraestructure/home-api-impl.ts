@@ -17,4 +17,8 @@ export class HomeApiImpl extends HomeGateway {
           request
         );
     }
+
+    getSucursales(): Observable<ResponseApi> {
+        return this.apiService.get<ResponseApi>('empleado/ObtenerSucursales');
+    }
 }

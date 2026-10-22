@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Empleado } from '../../../../shared/domain/models/empleado';
 import { EmpleadoRequest } from '../../../../shared/domain/request/empleadoRequest';
+import { Sucursal } from '../../../../shared/domain/models/sucursales';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import { EmpleadoRequest } from '../../../../shared/domain/request/empleadoReque
 })
 export class HomeComponent {
   empleados: Empleado[] = [];
+  sucursales: Sucursal[] = [];
   txtEmpleado: string = "";
   txtNroEmpleado: number = 0;
   fechaInicio: Date | null = null;
@@ -23,6 +25,7 @@ export class HomeComponent {
   ) { }
 
   ngOnInit(): void {
+    this.getSucursales();
     this.getEmpleados(null);
   }
   async getEmpleados(request: EmpleadoRequest | null = null) {
@@ -41,5 +44,10 @@ export class HomeComponent {
     };
 
     this.getEmpleados(request);
+  }
+
+  async getSucursales() {
+    const result = await this._homeService.getSucursales();
+    this.sucursales = result;
   }
 }

@@ -4,7 +4,7 @@
         <!-- Input de texto -->
         <div class="d-flex flex-column">
           <label for="txtNroEmpleado" class="form-label">Nro empleado</label>
-          <input type="text" class="form-control" id="txtNroEmpleado" 
+          <input type="number" class="form-control" id="txtNroEmpleado" 
                 [(ngModel)]="txtNroEmpleado" 
                  style="width: 100px;" 
                  name="txtNroEmpleado">
@@ -45,7 +45,7 @@
 
                   name="cmbSucursal">
             <option value="-1" selected>Selecciona</option>
-            <option value="1" >Suite</option>
+            <option [value]="sucursal.idSucursal" *ngFor="let sucursal of sucursales">{{sucursal.nombre}}</option>
           </select>
         </div>
         <!-- Botón -->

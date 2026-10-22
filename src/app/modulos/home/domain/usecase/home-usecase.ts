@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HomeGateway } from "../gateway/home-gateway";
 import { Observable } from "rxjs";
+import { EmpleadoRequest } from "../../../shared/domain/request/empleadoRequest";
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from "rxjs";
 export class HomeUseCase {
     constructor(private _homeGateway: HomeGateway) { }
 
-    getEmpleados(): Observable<any> {
-        return this._homeGateway.getEmpleados();
+    getEmpleados(request: EmpleadoRequest | null = null): Observable<any> {
+        return this._homeGateway.getEmpleados(request);
     }
 }

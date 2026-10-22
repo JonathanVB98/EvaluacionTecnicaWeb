@@ -3,6 +3,7 @@ import { ApiService } from "../../shared/infraestructure/services/api/api.servic
 import { HomeGateway } from "../domain/gateway/home-gateway";
 import { Observable } from "rxjs";
 import { ResponseApi } from "../../shared/domain/models/ResponseApi";
+import { EmpleadoRequest } from "../../shared/domain/request/empleadoRequest";
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,10 @@ import { ResponseApi } from "../../shared/domain/models/ResponseApi";
 export class HomeApiImpl extends HomeGateway {
     constructor(private apiService: ApiService){ super(); }
 
-    getEmpleados(): Observable<ResponseApi> {
-        return this.apiService.get<ResponseApi>(`empleado/ObtenerEmpleados`);
+    getEmpleados(request: EmpleadoRequest | null = null): Observable<ResponseApi> {
+        return this.apiService.post<ResponseApi>(
+          'empleado/ObtenerEmpleados',
+          request
+        );
     }
 }

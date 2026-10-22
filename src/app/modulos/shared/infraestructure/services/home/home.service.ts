@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HomeUseCase } from "../../../../home/domain/usecase/home-usecase";
 import { lastValueFrom } from "rxjs";
+import { EmpleadoRequest } from "../../../domain/request/empleadoRequest";
 
 
 @Injectable({
@@ -11,8 +12,8 @@ export class HomeService {
         private homeUseCase: HomeUseCase
     ) { }
 
-    async getEmpleados(): Promise<any>{
-        const res = await lastValueFrom(this.homeUseCase.getEmpleados());
+    async getEmpleados(request: EmpleadoRequest | null = null): Promise<any>{
+        const res = await lastValueFrom(this.homeUseCase.getEmpleados(request));
         return res.data;
     }
 }
